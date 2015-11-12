@@ -7,7 +7,16 @@ import java.util.Random;
 
 public class FortuneServerImpl extends UnicastRemoteObject implements FortuneServerIntf {
 	Random r;
-	private static final String [] FORTUNES = {};
+	private static final String [] FORTUNES = { "You will be older than ever before.",
+											    "Money is coming your way?",
+											    "You left the oven on.",
+											    "Something might be beneficial; keep a lookout.",
+											    "You will be dissapointed by this GUI.",
+											    "Tomorrow is another day.",
+											    "Good things come in threes, bad things in fives, suprising things in nines.",
+											    "You should write down your passwords and change them often.",
+											    "The coffee is ready.",
+											    "You have a 10% chance of getting this fortune."};
 	
 	protected FortuneServerImpl() throws RemoteException {
 		super();
@@ -16,7 +25,7 @@ public class FortuneServerImpl extends UnicastRemoteObject implements FortuneSer
 
 	@Override
 	public String tellFortune() throws RemoteException {
-		return "Fortunate, you are.";
+		return FORTUNES[r.nextInt(10)];
 	}
 	
 	public static void main (String [] args) throws RemoteException {
